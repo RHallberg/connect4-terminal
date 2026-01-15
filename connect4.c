@@ -126,19 +126,19 @@ int countDiscs(int (*grid)[6], int x, int y, int player, int dx, int dy){
 int checkWin(int (*grid)[6], int x, int y, int player){
 
   // Vertical
-  if((countDiscs(grid, x, y+1, player, 0, 1) + 1) == 4) 
+  if((countDiscs(grid, x, y+1, player, 0, 1) + 1) >= 4)
     return 1;
 
   // Horizontal
-  if((countDiscs(grid, x+1, y, player, 1, 0) + 1 + countDiscs(grid, x-1, y, player, -1, 0) ) == 4)
+  if((countDiscs(grid, x+1, y, player, 1, 0) + 1 + countDiscs(grid, x-1, y, player, -1, 0) ) >= 4)
     return 1;
 
   // Diagonal right
-  if((countDiscs(grid,x+1,y-1, player, 1, -1) + 1 + countDiscs(grid, x-1, y+1, player, -1, 1)) == 4)
+  if((countDiscs(grid,x+1,y-1, player, 1, -1) + 1 + countDiscs(grid, x-1, y+1, player, -1, 1)) >= 4)
     return 1;
 
   // Diagonal left
-  if((countDiscs(grid,x-1,y-1, player, -1, -1) + 1 + countDiscs(grid, x+1, y+1, player, 1, 1)) == 4)
+  if((countDiscs(grid,x-1,y-1, player, -1, -1) + 1 + countDiscs(grid, x+1, y+1, player, 1, 1)) >= 4)
     return 1;
 
   return 0;
